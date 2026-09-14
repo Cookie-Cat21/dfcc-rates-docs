@@ -21,7 +21,16 @@ endpoints:
   access: html_scrape
 - id: card_offers_supermarket
   method: GET
-  url: https://www.dfcc.lk/personal/cards/card-offers
-  path: /personal/cards/card-offers
-  summary: Card offers hub (supermarket DOW scrape). Trailing-slash variant of this path 308-loops on DFCC's server right now; the no-slash form is stable. Verified 2026-09-14.
+  url: https://www.dfcc.lk/cards/card-offers/credit-card-offers
+  path: /cards/card-offers/credit-card-offers
+  summary: 'Card offers hub (supermarket DOW scrape). CORRECTED 2026-09-14:
+    the previous URL (/personal/cards/card-offers) was a soft-404 — HTTP 200
+    with a literal "Page Not Found" page body, not caught by the earlier fix
+    because that fix only checked HTTP status, not content. Real page found
+    via site nav: /cards/card-offers is the hub (behind a cookie-consent
+    banner that blocks rendering until accepted), with the actual offer
+    list one level deeper at /credit-card-offers. NOTE: even this correct
+    URL currently renders with zero offers listed on DFCC''s own site —
+    verified via a real browser with cookies accepted, not a scraping
+    issue on our end. Re-check periodically in case DFCC populates it.'
   access: html_scrape
