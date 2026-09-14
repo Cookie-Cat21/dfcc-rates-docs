@@ -9,19 +9,19 @@ source_docs_in_lankawa:
 endpoints:
 - id: interest_rates_page
   method: GET
-  url: https://www.dfcc.lk/interest-rates/
-  path: /interest-rates/
-  summary: RSC-embedded deposit/loan rates.
+  url: https://www.dfcc.lk/rates-and-tariff
+  path: /rates-and-tariff
+  summary: RSC-embedded deposit/loan rates. Old /interest-rates/ now redirects here (2 hops) — pointed directly at the canonical URL to avoid redirect fragility. Verified 2026-09-14.
   access: html_scrape
 - id: exchange_rates_page
   method: GET
-  url: https://www.dfcc.lk/exchange-rates/
-  path: /exchange-rates/
-  summary: FX rates page.
+  url: https://www.dfcc.lk/treasury/foreign-exchange
+  path: /treasury/foreign-exchange
+  summary: FX rates page. Old /exchange-rates/ page has a genuine server-side infinite redirect bug on DFCC's own server right now (it 308-redirects to itself — confirmed via curl AND a real browser, not a probe/UA issue). Switched to the working /treasury/foreign-exchange page found via site nav. Verified 2026-09-14.
   access: html_scrape
 - id: card_offers_supermarket
   method: GET
-  url: https://www.dfcc.lk/personal/cards/card-offers/
-  path: /personal/cards/card-offers/
-  summary: Card offers hub (supermarket DOW scrape).
+  url: https://www.dfcc.lk/personal/cards/card-offers
+  path: /personal/cards/card-offers
+  summary: Card offers hub (supermarket DOW scrape). Trailing-slash variant of this path 308-loops on DFCC's server right now; the no-slash form is stable. Verified 2026-09-14.
   access: html_scrape
