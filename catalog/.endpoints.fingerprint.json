@@ -1,37 +1,36 @@
 {
-  "sha256": "f39063ed42d8365c3bc0da16d22dfae31b8b4273efe7a8c5a3fc3319f3a0b445",
+  "sha256": "c3bdf722a919beccf4b8a5e83c52191b5506569f50f5cf80c055130fba50f11e",
   "endpoint_count": 3,
   "endpoints": {
     "card_offers_supermarket": {
       "id": "card_offers_supermarket",
       "method": "GET",
-      "path": "/personal/cards/card-offers/",
-      "url": "https://www.dfcc.lk/personal/cards/card-offers/",
+      "path": "/personal/cards/card-offers",
+      "url": "https://www.dfcc.lk/personal/cards/card-offers",
       "status": "live",
       "access": "html_scrape",
-      "summary": "Card offers hub (supermarket DOW scrape).",
+      "summary": "Card offers hub (supermarket DOW scrape). Trailing-slash variant of this path 308-loops on DFCC's server right now; the no-slash form is stable. Verified 2026-09-14.",
       "pagination": null
     },
     "exchange_rates_page": {
       "id": "exchange_rates_page",
       "method": "GET",
-      "path": "/exchange-rates/",
-      "url": "https://www.dfcc.lk/exchange-rates/",
+      "path": "/treasury/foreign-exchange",
+      "url": "https://www.dfcc.lk/treasury/foreign-exchange",
       "status": "live",
       "access": "html_scrape",
-      "summary": "FX rates page.",
+      "summary": "FX rates page. Old /exchange-rates/ page has a genuine server-side infinite redirect bug on DFCC's own server right now (it 308-redirects to itself \u2014 confirmed via curl AND a real browser, not a probe/UA issue). Switched to the working /treasury/foreign-exchange page found via site nav. Verified 2026-09-14.",
       "pagination": null
     },
     "interest_rates_page": {
       "id": "interest_rates_page",
       "method": "GET",
-      "path": "/interest-rates/",
-      "url": "https://www.dfcc.lk/interest-rates/",
+      "path": "/rates-and-tariff",
+      "url": "https://www.dfcc.lk/rates-and-tariff",
       "status": "live",
       "access": "html_scrape",
-      "summary": "RSC-embedded deposit/loan rates.",
+      "summary": "RSC-embedded deposit/loan rates. Old /interest-rates/ now redirects here (2 hops) \u2014 pointed directly at the canonical URL to avoid redirect fragility. Verified 2026-09-14.",
       "pagination": null
     }
-  },
-  "updated": "2026-07-20"
+  }
 }
