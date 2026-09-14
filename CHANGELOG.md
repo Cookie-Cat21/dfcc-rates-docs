@@ -3,6 +3,10 @@
 ## 2026-09-14
 
 - **Changed** `card_offers_supermarket`
+
+## 2026-09-14
+
+- **Changed** `card_offers_supermarket`
 - **Changed** `exchange_rates_page`
 - **Changed** `interest_rates_page`
 
